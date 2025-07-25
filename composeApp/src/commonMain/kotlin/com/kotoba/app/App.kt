@@ -11,7 +11,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 @Preview
 fun App() {
-    val startDestination = Screen.HomeGraph
+    val startDestination = Screen.Learn
 
     MaterialTheme {
         AppNavGraph(startDestination = startDestination)

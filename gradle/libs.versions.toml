@@ -13,7 +13,7 @@ androidx-testExt = "1.2.1"
 composeMultiplatform = "1.8.2"
 junit = "4.13.2" # TODO: android 에서 kotest 사용해볼 것
 kotlin = "2.2.0"
-
+cocoapods = "2.0.20"
 navigation = "2.9.0-beta04"
 koin = "4.1.0"
 serialization = "1.9.0"
@@ -22,6 +22,7 @@ ktor = "3.2.2"
 coroutines = "1.10.2"
 splash = "1.0.1"
 ktlint = "13.0.0"
+mlkit-digital-ink = "18.1.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -58,6 +59,8 @@ ktor-darwin-client = { module = "io.ktor:ktor-client-darwin", version.ref = "kto
 ktor-android-client = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
 
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-playservice = {module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "coroutines"}
+mlkit-digital-ink = { module = "com.google.mlkit:digital-ink-recognition", version.ref = "mlkit-digital-ink" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -67,3 +70,4 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "k
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }

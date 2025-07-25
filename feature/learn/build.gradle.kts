@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinCocoapods)
 }
 
 kotlin {
@@ -16,15 +17,20 @@ kotlin {
         }
     }
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
+    cocoapods {
+        version = "1.0"
+        name = "KotobaCocoapod"
+        ios.deploymentTarget = "14.1"
+        framework {
             baseName = "learn"
             isStatic = true
         }
+
+        pod("GoogleMLKit/DigitalInkRecognition", "8.0.0")
     }
 
     sourceSets {
@@ -33,13 +39,17 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.splash.screen)
+            implementation(libs.koin.android)
+            implementation(libs.mlkit.digital.ink)
+            implementation(libs.kotlinx.coroutines.playservice)
         }
         commonMain.dependencies {
             implementation(project(path = ":shared"))
+            implementation(project(path = ":core:di"))
 //            implementation(project(path = ":core:data"))
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material3) // m3가 기본
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -49,6 +59,7 @@ kotlin {
             implementation(libs.koin.compose)
 
             implementation(libs.compose.navigation)
+            implementation(libs.kotlinx.coroutines.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

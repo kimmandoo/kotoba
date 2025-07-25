@@ -30,7 +30,6 @@ dependencyResolutionManagement {
 
 include(":core:data")
 include(":core:navigation")
-include(":core:domain")
 include(":core:di")
 include(":feature:home")
 include(":feature:learn")

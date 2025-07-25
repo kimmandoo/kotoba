@@ -48,7 +48,7 @@ kotlin {
 
             implementation(project(path = ":shared"))
             implementation(project(path = ":core:navigation"))
-//            implementation(project(path = ":core:di"))
+            implementation(project(path = ":core:di"))
 //            implementation(project(path = ":core:data"))
         }
         commonTest.dependencies {
