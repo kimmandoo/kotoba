@@ -1,4 +1,4 @@
-rootProject.name = "Kotoba"
+rootProject.name = "kotoba"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -29,7 +29,9 @@ dependencyResolutionManagement {
 }
 
 include(":core:data")
+include(":core:navigation")
 include(":core:domain")
-include(":di")
+include(":core:di")
+include(":feature:home")
 include(":composeApp")
 include(":shared")
