@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.serialization)
 }
 
 kotlin {
@@ -23,27 +22,32 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "navigation"
+            baseName = "learn"
             isStatic = true
         }
     }
 
     sourceSets {
+
+        androidMain.dependencies {
+            implementation(compose.preview)
+            implementation(libs.androidx.activity.compose)
+            implementation(libs.splash.screen)
+        }
         commonMain.dependencies {
             implementation(project(path = ":shared"))
-            implementation(project(path = ":feature:home"))
-            implementation(project(path = ":feature:learn"))
-
+//            implementation(project(path = ":core:data"))
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material3)
+            implementation(compose.material3) // m3가 기본
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.koin.compose)
 
-            implementation(libs.kotlinx.serialization)
             implementation(libs.compose.navigation)
         }
         commonTest.dependencies {
@@ -53,7 +57,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.kotoba.navigation"
+    namespace = "com.kotoba.learn"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

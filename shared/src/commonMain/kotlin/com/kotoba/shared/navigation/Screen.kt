@@ -5,11 +5,14 @@ import kotlinx.serialization.Serializable
 @Serializable
 sealed class Screen {
     @Serializable
-    data object HomeGraph: Screen()
+    data object HomeGraph : Screen()
+
     @Serializable
-    data object Profile: Screen()
+    data object Learn : Screen()
+
     @Serializable
-    data object Settings: Screen()
+    data object Profile : Screen()
+
     @Serializable
-    data object Learn: Screen()
+    data object Settings : Screen()
 }

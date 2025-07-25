@@ -5,18 +5,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.kotoba.home.HomeGraphScreen
+import com.kotoba.learn.LearnScreen
 import com.kotoba.shared.navigation.Screen
 
 @Composable
-fun AppNavGraph(
-    startDestination: Screen = Screen.HomeGraph
-){
+fun AppNavGraph(startDestination: Screen = Screen.HomeGraph) {
     val navController = rememberNavController()
 
     NavHost(
         navController = navController,
-        startDestination = startDestination
-    ){
+        startDestination = startDestination,
+    ) {
         composable<Screen.HomeGraph> {
             HomeGraphScreen(
                 navigateToProfile = {
@@ -26,10 +25,13 @@ fun AppNavGraph(
 //                    navController.navigate(Screen.Settings)
                 },
                 navigateToLearn = {
-//                    navController.navigate(Screen.Learn)
-                }
+                    navController.navigate(Screen.Learn)
+                },
             )
         }
-    }
 
+        composable<Screen.Learn> {
+            LearnScreen()
+        }
+    }
 }

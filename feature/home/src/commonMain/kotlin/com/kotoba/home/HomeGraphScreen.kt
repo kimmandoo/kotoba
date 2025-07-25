@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 fun HomeGraphScreen(
     navigateToProfile: () -> Unit,
     navigateToSettings: () -> Unit,
-    navigateToLearn: () -> Unit
-){
+    navigateToLearn: () -> Unit,
+) {
     Column(modifier = Modifier.fillMaxSize().systemBarsPadding()) {
         Text(text = "hello")
     }
